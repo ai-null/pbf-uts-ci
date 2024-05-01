@@ -10,7 +10,8 @@ class Action extends BaseController
         $result = $reservationModel->findAll();
 
         return view('/admin/dashboard', [
-            'data' => $result
+            'data' => $result,
+            'is_active' => true,
         ]);
     }
 }

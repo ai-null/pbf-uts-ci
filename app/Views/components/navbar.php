@@ -9,13 +9,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                
+
             </ul>
             <ul class="d-flex navbar-nav">
                 <li class="nav-item">
-                <a class="btn btn-primary" aria-current="page" href="<?= base_url('login') ?>">
-                    Login Dokter
-                </a>
+                    <a class="btn btn-primary" aria-current="page" href="
+                    <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != null) echo base_url('logout'); else echo base_url('login'); ?>">
+                        <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != null) echo 'Logout';
+                        else echo 'Login Dokter'; ?>
+                    </a>
                 </li>
             </ul>
         </div>
