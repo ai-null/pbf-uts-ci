@@ -33,6 +33,7 @@
       </div>
       
       <div class="d-flex">
+      <?php #if () echo "<h6 class='error-msg'>Sadly, username or password is wrong.<h6>"; ?>
         <div class="me-auto"><button type="submit" name="submit" class="btn btn-primary">Sign In</button></div>
         <div class="p-2">Or maybe <a href="<?= base_url('register') ?>">register</a> first?</div>
       </div>

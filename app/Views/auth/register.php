@@ -15,6 +15,10 @@
     .error-msg {
         color: red;
     }
+
+    .success-msg {
+        color: green;
+    }
 </style>
 
 <div class="container2 position-relative position-absolute top-50 start-50 translate-middle">
@@ -22,6 +26,7 @@
     <h3 class="mt-2">Register page</h3>
 
     <form method="post" action="<?= base_url('register') ?>">
+    <?= csrf_field() ?>
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" name="username" id="username" required>
@@ -31,6 +36,8 @@
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" name="password" id="password" required>
         </div>
+        <?php if ($is_from_register && !$register_result) echo "<h6 class='error-msg'>Sadly, something went wrong.<h6>"; ?>
+        <?php if ($is_from_register && $register_result) echo "<h6 class='success-msg'>Register success!<h6>"; ?>
         <button type="submit" name="submit" class="btn btn-primary">Register</button>
     </form>
 </div>

@@ -11,4 +11,5 @@ $routes->get('/register', 'Auth::showRegister');
 $routes->get('/dashboard', 'Action::index');
 
 $routes->post('/', 'Home::reserve');
-$routes->post('/login', 'Auth::doLogin');
+$routes->post('/login', 'Auth::login');
+$routes->post('/register', 'Auth::register');
