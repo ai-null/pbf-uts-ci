@@ -11,7 +11,7 @@ class ReservasiModel extends Model {
 
     protected $useAutoIncrement = true;
     
-    protected $allowedFields = ['nama', 'kelamin'];
+    protected $allowedFields = ['id', 'nama', 'kelamin', 'status'];
 
     protected bool $allowEmptyInserts = false;
 }

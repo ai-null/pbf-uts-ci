@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use function PHPUnit\Framework\isEmpty;
-
 class Home extends BaseController
 {
     public function index()
@@ -26,12 +24,12 @@ class Home extends BaseController
         $kelamin = $this->request->getPost('kelamin');
 
         $data = [
-            'id'         => null,
-            'nama'       => $nama,
-            'kelamin'    => $kelamin,
+            'id'        => null,
+            'nama'      => $nama,
+            'kelamin'   => $kelamin,
         ];
 
-        if (isEmpty($nama) || isEmpty($kelamin)) {
+        if (empty($nama) || empty($kelamin)) {
             return view('welcome_message', [
                 'is_from_post' => true,
                 'post_response' => false

@@ -11,7 +11,36 @@ class Action extends BaseController
 
         return view('/admin/dashboard', [
             'data' => $result,
-            'is_active' => true,
+            'is_error' => null
         ]);
+    }
+
+    public function update()
+    {
+        $reservationModel = new \App\Models\ReservasiModel();        
+
+        $update = $this->_update($reservationModel);
+        $result = $reservationModel->findAll();
+
+        return view('/admin/dashboard', [
+            'data' => $result,
+            'is_error' => $update
+        ]);
+    }
+
+    private function _update(\App\Models\ReservasiModel $reservationModel): bool
+    {
+        $action = $this->request->getPost('action');
+        $id = $this->request->getPost('id');
+
+        if ($action == "1") {
+            return $reservationModel->update($id, [
+                'status' => 'accepted'
+            ]);
+        } else if ($action == "0") {
+            return $reservationModel->delete($id);
+        } else {
+            return false;
+        }
     }
 }

@@ -11,7 +11,7 @@ class AdminModel extends Model {
 
     protected $useAutoIncrement = true;
     
-    protected $allowedFields = ['username', 'password'];
+    protected $allowedFields = ['username', 'password', 'status'];
 
     protected bool $allowEmptyInserts = false;
 }
