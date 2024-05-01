@@ -7,3 +7,8 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/login', 'Auth::showLogin');
+$routes->get('/register', 'Auth::showRegister');
+$routes->get('/dashboard', 'Action::index');
+
+$routes->post('/', 'Home::reserve');
+$routes->post('/login', 'Auth::doLogin');
