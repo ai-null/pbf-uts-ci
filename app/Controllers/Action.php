@@ -5,6 +5,11 @@ namespace App\Controllers;
 class Action extends BaseController
 {
     public function index(): string {
-        return view('/admin/dashboard');
+        $reservationModel = new \App\Models\ReservasiModel();
+        $result = $reservationModel->findAll();
+
+        return view('/admin/dashboard', [
+            'data' => $result
+        ]);
     }
 }
